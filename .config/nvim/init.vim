@@ -4,6 +4,8 @@ set smartindent
 set encoding=utf-8
 set number
 
+syntax on
+
 " Navigation d'onglet (similaire à Firefox)
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
