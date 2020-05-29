@@ -197,4 +197,4 @@ exec_always --no-startup-id numlockx on
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id mkfifo /tmp/mpd.fifo
 exec_always --no-startup-id mopidy
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 3; exec /usr/bin/thunderbird; workspace 1; exec /usr/bin/urxvt; exec /usr/bin/ncmpcpp; workspace 10; exec /usr/bin/htop'
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 3; exec /usr/bin/thunderbird; workspace 1; exec /usr/bin/urxvt; exec /usr/bin/ncmpcpp; workspace 9; exec /usr/bin/ncmpcpp; workspace 10; exec /usr/bin/htop; workspace 1'
