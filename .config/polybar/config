@@ -33,11 +33,13 @@ alert = ${xrdb:color1:#bd2c40}
 [global/wm]
 margin-top = 0
 margin-bottom = 0
+scripts = $HOME/git/polybar-scripts/polybar-scripts/
 
 [bar/top]
+locale = fr_FR.UTF-8
 monitor = ${env:MONITOR:}
 width = 100%
-height = 25
+height = 30
 offset-x = 0%
 offset-y = 0%
 radius = 0.0
@@ -53,27 +55,26 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 2
+padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 1
 
-font-0 = Déjà Vu Sans Mono:size=12;0
-;font-0 = NotoSans-Regular:size=10;0
-;font-0 = fixed:size=12;1
+font-0 = Déjà Vu Sans Mono:size=10;0
 font-1 = Unifont:size=10:style=Medium;0
-font-2 = Termsynu:size=10;0
-font-3 = Siji:pixelsize=10;1
-font-4 = FontAwesome:size=10;0
-font-5 = Weather Icons:size=14;1
+font-2 = Hack Nerd Font Mono:style=Solid:size=16;1
+font-3 = Hack Nerd Font:style=Solid:size=12;0
+font-4 = Siji:pixelsize=10;1
+font-5 = Termsynu:size=10;0
+font-6 = Weather Icons:size=12;0
 
 modules-left = bspwm i3
-modules-center = date openweathermap-fullfeatured
+modules-center = date sep openweathermap-fullfeatured
 modules-right = filesystem temperature cpu memory battery
 
 tray-position = right
-tray-padding = 1
+tray-padding = 0
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -91,9 +92,10 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/bottom]
+locale = fr_FR.UTF-8
 monitor = ${env:MONITOR:}
 width = 100%
-height = 25
+height = 30
 offset-x = 0%
 offset-y = 0%
 radius = 0.0
@@ -115,18 +117,18 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = DejaVu Sans Mono:size=12;0
-;font-0 = NotoSans-Regular:size=10;0
-;font-0 = fixed:size=12;1
-font-1 = Unifont:size=7:style=Medium;0
-font-2 = Termsynu:size=8;0
-font-3 = Siji:pixelsize=10;1
-font-4 = FontAwesome:size=10;0
-font-5 = Weather Icons:size=14;1
+font-0 = Déjà Vu Sans Mono:size=10;0
+font-1 = Unifont:size=10:style=Medium;0
+font-2 = Hack Nerd Font Mono:style=Solid:size=14;2
+font-3 = Hack Nerd Font:style=Solid:size=12;1
+font-4 = Siji:pixelsize=10;1
+font-5 = Termsynu:size=10;0
+;bluetoothctl font
+font-6 = Hack Nerd Font:style=Solid:size=10;2
 
-modules-left = xkeyboard xbacklight
-modules-center = mpd pulseaudio
-modules-right = wlan eth updates-arch-combined
+modules-left = xkeyboard wlan eth system-bluetooth-bluetoothctl
+modules-center = mpd
+modules-right = updates-aurhelper xbacklight pulseaudio
 
 tray-position = none
 tray-padding = 0
@@ -154,7 +156,7 @@ label = %title:0:50:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -203,39 +205,50 @@ label-empty-padding = 2
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+wrapping-scroll = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-font = 3
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 4
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused = %icon%
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; Separator in between workspaces
 ; label-separator = |
-
 
 [module/mpd]
 type = internal/mpd
@@ -247,18 +260,32 @@ password =
 
 ; Seconds to sleep between progressbar/song timer sync
 ; Default: 1
-interval = 2
+interval = 1
 
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>  <bar-progress> <label-time>
+format-online = <label-song>  <label-time> | <icon-prev> <icon-stop> <toggle> <icon-next> | <icon-random> <icon-repeat> <icon-single>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev = 玲
+icon-prev-font = 4
+icon-stop = 栗
+icon-stop-font = 4
+icon-play = 契
+icon-play-font = 4
+icon-pause = 
+icon-pause-font = 4
+icon-next = 怜
+icon-next-font = 4
+icon-random = 列
+icon-random-font = 3
+icon-repeat = 凌
+icon-repeat-font = 3
+icon-single = 綾
+icon-single-font = 3
+
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
 
 label-song = %title%
-label-song-maxlen = 30
+label-song-maxlen = 40
 label-song-ellipsis = true
 
 ; Available tokens:
@@ -266,11 +293,10 @@ label-song-ellipsis = true
 label-offline = 🎜 mpd is offline
 
 ; Only applies if <bar-progress> is used
-bar-progress-width = 25
+bar-progress-width = 10
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = ─
-
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -281,14 +307,14 @@ label = %percentage%
 bar-width = 7
 bar-indicator = 
 bar-indicator-foreground = ${xrdb:foreground:#fff}
-bar-indicator-font = 2
+bar-indicator-font = 1
 ;bar-fill = ─
 bar-fill = █
-bar-fill-font = 3
+bar-fill-font = 1
 bar-fill-foreground = ${xrdb:color4:#9f78e1}
 ;bar-empty = ─
-bar-empty = ▒
-bar-empty-font = 3
+bar-empty = █
+bar-empty-font = 1
 bar-empty-foreground = ${colors.foreground-alt}
 
 [module/backlight-acpi]
@@ -304,10 +330,10 @@ format = <ramp-coreload> <label>
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${xrdb:color13:#f90000}
 label = %percentage:2%%
-label-font = 5
+label-font = 1
 
 ramp-coreload-spacing = 1
-ramp-coreload-font = 3
+ramp-coreload-font = 1
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
 ramp-coreload-2 = ▃
@@ -325,9 +351,9 @@ format = <label> <bar-used>
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 ;label = %percentage_used%%
-label = " "
-label-font = 1
-label-foreground = #99
+label = ""
+label-font = 3
+label-foreground = #ff
 
 bar-used-width = 10
 bar-used-gradient = true
@@ -336,12 +362,12 @@ bar-used-foreground-1 = #2f8419
 bar-used-foreground-2 = #f5a70a
 bar-used-foreground-3 = #ed5456
 bar-used-indicator = █
-bar-used-indicator-font = 3
+bar-used-indicator-font = 
 bar-used-indicator-foreground = #fff
 bar-used-fill = █
-bar-used-fill-font = 3
+bar-used-fill-font = 1
 bar-used-empty = █
-bar-used-empty-font = 3
+bar-used-empty-font = 1
 bar-used-empty-foreground = #44
 
 
@@ -350,12 +376,12 @@ type = internal/network
 interface = wlp0s20f3
 interval = 3.0
 
-format-connected = <ramp-signal><label-connected>
+format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
+;format-disco/nnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -364,12 +390,12 @@ label-font = 1
 label-connected-background = ${colors.background}
 label-connected-padding = 0
 
-ramp-signal-font = 2
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-font = 3
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 ramp-signal-padding = 1
 ramp-signal-foreground = ${colors.foreground-alt}
 
@@ -382,6 +408,7 @@ format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip% ↑%upspeed% ↓%downspeed%
+labal-font = 4
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -408,19 +435,21 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume> <label-volume> <bar-volume>
+format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = 婢
 label-muted-foreground = #666
+label-muted-font = 4
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-font = 4
 
-bar-volume-width = 10
+bar-volume-width = 6
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -430,11 +459,11 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = █
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 1
 bar-volume-fill = █
-bar-volume-fill-font = 2
-bar-volume-empty = ▒
-bar-volume-empty-font = 2
+bar-volume-fill-font = 1
+bar-volume-empty = █
+bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/alsa]
@@ -477,31 +506,34 @@ format-charging-underline = #ffb52a
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = ""
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
+format-full-font = 4
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-font = 4
 animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+animation-charging-framerate = 1500
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-font = 4
 animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+animation-discharging-framerate = 1500
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 75
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
 
 format = <ramp> <label>
@@ -511,11 +543,12 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = #f50a4d
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-font = 4
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -547,10 +580,29 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-[module/updates-arch-combined]
+[module/updates-aurhelper]
 type = custom/script
-exec = /home/hugo/.config/polybar/scripts/updates-arch-combined.sh
+exec = $HOME/git/polybar-scripts/polybar-scripts/updates-aurhelper/updates-aurhelper.sh
 interval = 600
+
+[module/openweathermap-fullfeatured]
+type = custom/script
+exec = $HOME/git/polybar-scripts/polybar-scripts/openweathermap-fullfeatured/openweathermap-fullfeatured.sh
+interval = 600
+label-font = 7
+
+[module/system-bluetooth-bluetoothctl]
+type = custom/script
+exec = $HOME/git/polybar-scripts/polybar-scripts/system-bluetooth-bluetoothctl/system-bluetooth-bluetoothctl.sh
+tail = true
+click-left = $HOME/git/polybar-scripts/polybar-scripts/system-bluetooth-bluetoothctl/system-bluetooth-bluetoothctl.sh --toggle &
+format-underline = #0a3d91
+format-font = 7
+
+[module/sep]
+type = custom/text
+content = " "
+content-padding = 0
 
 [settings]
 screenchange-reload = true

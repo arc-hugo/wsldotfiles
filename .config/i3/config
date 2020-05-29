@@ -33,6 +33,7 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+s exec --no-startup-id rofi -show ssh
+bindsym $mod+i exec --no-startup-id $HOME/git/rofi-fontawesome/fontawesome-menu/fontawesome-menu -f $HOME/git/rofi-fontawesome/fontawesome-menu/fa5-icon-list.txt
 
 # change focus
 bindsym $mod+j focus left
@@ -196,4 +197,4 @@ exec_always --no-startup-id numlockx on
 exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec_always --no-startup-id mkfifo /tmp/mpd.fifo
 exec_always --no-startup-id mopidy
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 3; exec /usr/bin/thunderbird; workspace 1; exec /usr/bin/urxvt; exec /usr/bin/ncmpcpp; workspace 10; /usr/bin/htop'
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 3; exec /usr/bin/thunderbird; workspace 1; exec /usr/bin/urxvt; exec /usr/bin/ncmpcpp; workspace 10; exec /usr/bin/htop'
