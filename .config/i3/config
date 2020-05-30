@@ -188,6 +188,9 @@ bindsym XF86AudioMute exec --no-startup-id $HOME/.config/i3/scripts/pactl_volume
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
+# Webcam toggle
+bindsym F10 exec $HOME/bin/webcam_toggle.sh
+
 #Start with i3
 exec_always --no-startup-id /usr/bin/feh --bg-center $HOME/.config/i3/wallpaper.jpg
 exec_always --no-startup-id /usr/bin/python2.7 $HOME/box/Dropbox/Applications/dropbox.py start

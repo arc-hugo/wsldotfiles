@@ -31,6 +31,8 @@ alias clone='git clone'
 alias lg='git log'
 alias u='git add -u'
 alias all='git add .'
+
+# Alias de gestion des dotfiles
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME' 
 
 # Alias de compilation
@@ -52,27 +54,37 @@ alias open-bz='tar xvjf'
 alias open-xz='tar xf'
 alias vim='nvim'
 
-# Alias de configuration
+# Alias de Neo Vim
 alias vimrc='vim ~/.config/nvim/init.vim'
 alias vimplug='vim ~/.local/share/nvim/site/autoload/plug.vim'
+
+# Alias de bash
 alias bashrc='vim ~/.bashrc'
 alias bashalias='vim ~/.bash_aliases'
+
+# Alias de I3
 alias i3conf='vim ~/.config/i3/config'
+
+# Alias de Polybar
 alias polyconf='vim ~/.config/polybar/config'
 alias polyscripts='vim ~/git/polybar-scripts/polybar-scripts/'
+
+# Alias de ranger
 alias rangerconf='vim ~/.config/ranger/rc.conf'
 alias rifleconf='vim ~/.config/ranger/rifle.conf'
 alias scopeconf='vim ~/.config/ranger/scope.sh'
+
+# Alias de Xresources
 alias xconf='vim ~/.Xresources'
+
+# Alias de Mopidy
 alias mopiconf='vim ~/.config/mopidy/mopidy.conf'
+
+# Alias de NCMPCPP
 alias ncmconf='vim ~/.ncmpcpp/config'
-alias mpdconf='vim ~/.config/mpd/mpd.conf'
 
 # Alias d'applications
 alias dropbox='python2.7 ~/box/Dropbox/Applications/dropbox.py'
 alias wifi-scan='nmcli device wifi list'
 alias wifi-connect='nmcli --ask device wifi connect'
 alias videospyder='python ~/bin/videospyder.py'
-
-# Alias de gestion des dot files
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

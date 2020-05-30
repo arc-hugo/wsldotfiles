@@ -128,7 +128,7 @@ font-6 = Hack Nerd Font:style=Solid:size=10;2
 
 modules-left = xkeyboard wlan eth system-bluetooth-bluetoothctl
 modules-center = mpd
-modules-right = updates-aurhelper xbacklight pulseaudio
+modules-right = updates-pacman-aurhelper xbacklight pulseaudio
 
 tray-position = none
 tray-padding = 0
@@ -580,15 +580,15 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-[module/updates-aurhelper]
+[module/updates-pacman-aurhelper]
 type = custom/script
-exec = $HOME/git/polybar-scripts/polybar-scripts/updates-aurhelper/updates-aurhelper.sh
+exec = $HOME/git/polybar-scripts/polybar-scripts/updates-pacman-aurhelper/updates-pacman-aurhelper.sh
 interval = 600
 
 [module/openweathermap-fullfeatured]
 type = custom/script
 exec = $HOME/git/polybar-scripts/polybar-scripts/openweathermap-fullfeatured/openweathermap-fullfeatured.sh
-interval = 600
+interval = 60
 label-font = 7
 
 [module/system-bluetooth-bluetoothctl]
