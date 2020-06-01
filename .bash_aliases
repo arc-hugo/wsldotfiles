@@ -1,29 +1,34 @@
-# Alias de base
+# Basic aliases
 alias q='exit'
 alias c='clear'
 alias h='history'
 alias cs='clear;ls'
 alias p='cat'
 alias ls='ls --color=auto'
-#alias grep='f(){ grep -e "$@" color=auto }; f'
+alias grep='grep --color=auto'
 alias la='ls -a'
 alias ll='ls -l'
 alias t='time'
 alias k='kill'
 alias null='/dev/null'
 
-# Alias de navigation
+# Navigation aliases
 alias root='cd /'
 alias dtop='cd ~/dsk/'
 alias dbox='cd ~/box/Dropbox/'
 alias cprj='cd ~/prj/c/'
-alias javaprj='cd ~/prj/java/'
-alias webprj='cd ~/prj/web/'
+alias jprj='cd ~/prj/java/'
+alias wprj='cd ~/prj/web/'
+alias pyprj='cd ~/prj/python/'
+alias bprj='cd ~/prj/blender/'
+alias aprj='cd ~/prj/ada/'
+alias mprj='cd ~/prj/mus/'
+alias oprj='cd ~/prj/autre/'
 alias ..='cd ..'
 alias ...='cd ..;cd ..'
 alias ....='cd ..; cd ..; cd ..'
 
-# Alias de git
+# git aliases
 alias g='git'
 alias st='git status'
 alias com='git commit -m'
@@ -32,59 +37,51 @@ alias lg='git log'
 alias u='git add -u'
 alias all='git add .'
 
-# Alias de gestion des dotfiles
+# Dotfiles versioning aliases
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME' 
 
-# Alias de compilation
+# Compilation aliases
 alias ada='f(){ gnatmake -q "$@"; gnatclean -q -c *;  unset -f f; }; f'
 
-# Alias de gestion de paquets
+# Packages maintaining aliases
 alias update='sudo pacman -Syu;yay -Syu --devel --timeupdate'
 alias autoclean='sudo pacman -Scc'
 alias autoremove='sudo pacman -R $(pacman -Qdtq)'
 alias search='sudo pkgfile'
 
-# Alias de système
-alias sysleep='systemctl suspend'
+# NeoVim aliases
+alias vimrc='vim ~/.config/nvim/init.vim'
+alias vimplug='vim ~/.local/share/nvim/site/autoload/plug.vim'
 
-# Alias de gestion de programmes
+# bash aliases
+alias bashrc='vim ~/.bashrc'
+alias bashalias='vim ~/.bash_aliases'
+
+# I3 aliases
+alias i3conf='vim ~/.config/i3/config'
+
+# Polybar aliases
+alias polyconf='vim ~/.config/polybar/config'
+alias polyscripts='vim ~/git/polybar-scripts/polybar-scripts/'
+
+# ranger aliases
+alias rangerconf='vim ~/.config/ranger/rc.conf'
+alias rifleconf='vim ~/.config/ranger/rifle.conf'
+alias scopeconf='vim ~/.config/ranger/scope.sh'
+
+# Xresources aliases
+alias xconf='vim ~/.Xresources'
+
+# Mopidy alias
+alias mopiconf='vim ~/.config/mopidy/mopidy.conf'
+
+# ncmpcpp aliases
+alias ncmconf='vim ~/.ncmpcpp/config'
+
+# Other aliases
+alias videospyder='python ~/bin/videospyder.py'
 alias conv-iso-uft='iconv -f iso-8859-15 -t utf-8'
 alias open-gz='tar xvzf'
 alias open-bz='tar xvjf'
 alias open-xz='tar xf'
 alias vim='nvim'
-
-# Alias de Neo Vim
-alias vimrc='vim ~/.config/nvim/init.vim'
-alias vimplug='vim ~/.local/share/nvim/site/autoload/plug.vim'
-
-# Alias de bash
-alias bashrc='vim ~/.bashrc'
-alias bashalias='vim ~/.bash_aliases'
-
-# Alias de I3
-alias i3conf='vim ~/.config/i3/config'
-
-# Alias de Polybar
-alias polyconf='vim ~/.config/polybar/config'
-alias polyscripts='vim ~/git/polybar-scripts/polybar-scripts/'
-
-# Alias de ranger
-alias rangerconf='vim ~/.config/ranger/rc.conf'
-alias rifleconf='vim ~/.config/ranger/rifle.conf'
-alias scopeconf='vim ~/.config/ranger/scope.sh'
-
-# Alias de Xresources
-alias xconf='vim ~/.Xresources'
-
-# Alias de Mopidy
-alias mopiconf='vim ~/.config/mopidy/mopidy.conf'
-
-# Alias de NCMPCPP
-alias ncmconf='vim ~/.ncmpcpp/config'
-
-# Alias d'applications
-alias dropbox='python2.7 ~/box/Dropbox/Applications/dropbox.py'
-alias wifi-scan='nmcli device wifi list'
-alias wifi-connect='nmcli --ask device wifi connect'
-alias videospyder='python ~/bin/videospyder.py'
