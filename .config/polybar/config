@@ -206,6 +206,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = true
+override-redirect = false
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -401,7 +402,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp7s0
+interface = enp0s20f0u3
 interval = 3.0
 
 format-connected-underline = #55aa55

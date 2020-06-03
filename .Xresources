@@ -1,6 +1,8 @@
-! special
+! fonts
 URxvt.font:         xft:Deja Vu Sans Mono:size=10:antialias=true,xft:Symbola
-!URxvt.font:     xft:bitstream vera sans mono:size=16:antialias=true
+! Keycap picture insert disable
+URxvt.iso14755:         false
+URxvt.iso14755_52:      false
 urxvt*termName: rxvt
 URxvt*scrollBar: false
 URxvt*matcher.button: 1
