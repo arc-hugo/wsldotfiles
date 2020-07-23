@@ -1,2 +1,2 @@
-# dotfiles
-Personnal dotfiles for my ArchLinux system
+# wsldotfiles
+WSL version of my dotfiles
