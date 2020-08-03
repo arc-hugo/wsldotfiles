@@ -15,8 +15,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Suppression de buffer (dépendence ranger)
 Plug 'rbgrouleff/bclose.vim'
-" Intégre ranger à nvim
-Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1

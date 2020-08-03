@@ -15,7 +15,7 @@ alias null='/dev/null'
 # Navigation aliases
 alias root='cd /'
 alias dtop='cd ~/dsk/'
-alias dbox='cd ~/box/Dropbox/'
+alias dcld='cd ~/cloud/'
 alias dgit='cd ~/git/'
 alias cprj='cd ~/prj/c/'
 alias jprj='cd ~/prj/java/'
@@ -57,27 +57,6 @@ alias vimplug='vim ~/.local/share/nvim/site/autoload/plug.vim'
 # bash aliases
 alias bashrc='vim ~/.bashrc'
 alias bashalias='vim ~/.bash_aliases'
-
-# I3 aliases
-alias i3conf='vim ~/.config/i3/config'
-
-# Polybar aliases
-alias polyconf='vim ~/.config/polybar/config'
-alias polyscripts='vim ~/git/polybar-scripts/polybar-scripts/'
-
-# ranger aliases
-alias rangerconf='vim ~/.config/ranger/rc.conf'
-alias rifleconf='vim ~/.config/ranger/rifle.conf'
-alias scopeconf='vim ~/.config/ranger/scope.sh'
-
-# Xresources aliases
-alias xconf='vim ~/.Xresources'
-
-# Mopidy alias
-alias mopiconf='vim ~/.config/mopidy/mopidy.conf'
-
-# ncmpcpp aliases
-alias ncmconf='vim ~/.ncmpcpp/config'
 
 # Other aliases
 alias videospyder='python ~/bin/videospyder.py'
