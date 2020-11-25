@@ -13,8 +13,21 @@ nnoremap <C-tab>   :tabnext<CR>
 call plug#begin('~/.vim/plugged')
 " Auto-completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" C/C++ auto-complete
+Plug 'deoplete-plugins/deoplete-clang'
+" Linter
+Plug 'dense-analysis/ale'
 " Suppression de buffer (dépendence ranger)
 Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
+" Deoplete config
 let g:deoplete#enable_at_startup = 1
+
+" Ale config
+let g:ale_linters = {
+    \ 'python': ['pylint'],
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}

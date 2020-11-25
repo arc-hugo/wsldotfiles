@@ -59,10 +59,13 @@ function parse_git_dirty {
 export PS1="\[\033[38;5;24m\][\u@\h \[\033[38;5;33m\]\W \[\033[38;5;54m\]\`parse_git_branch\`\[\033[38;5;24m\]]\[\033[38;5;33m\]\$\[$(tput sgr0)\] "
 #export PS1="\[\033[38;5;202m\][\u@\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;237m\]\W\[$(tput sgr0)\]\[\033[38;5;202m\]]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /usr/share/nvm/init-nvm.sh
-
 export PATH="$PATH"
 export EDITOR="nvim"
+
+export ANDROID_HOME=/home/xxx/Android/cmdline-tools/latest
+export ANDROID_SDK_ROOT=/home/xxx/Android
+
+PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+PATH=$PATH:$ANDROID_HOME/bin
+
+export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
