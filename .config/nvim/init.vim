@@ -1,3 +1,5 @@
+set expandtab
+set smarttab
 set shiftwidth=3
 set autoindent
 set smartindent
@@ -9,6 +11,9 @@ syntax on
 " Navigation d'onglet (similaire à Firefox)
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
+
+" Fermeture des crochets
+inoremap { {<CR><BS>}<Esc>ko
 
 call plug#begin('~/.vim/plugged')
 " Auto-completion

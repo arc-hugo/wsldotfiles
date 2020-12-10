@@ -2,6 +2,12 @@
 # ~/.bashrc
 #
 
+# init bash in home directory
+if [ "$PWD" = '/mnt/c/Users/hugob' ]
+then
+   cd
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -59,13 +65,15 @@ function parse_git_dirty {
 export PS1="\[\033[38;5;24m\][\u@\h \[\033[38;5;33m\]\W \[\033[38;5;54m\]\`parse_git_branch\`\[\033[38;5;24m\]]\[\033[38;5;33m\]\$\[$(tput sgr0)\] "
 #export PS1="\[\033[38;5;202m\][\u@\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;237m\]\W\[$(tput sgr0)\]\[\033[38;5;202m\]]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
-export PATH="$PATH"
-export EDITOR="nvim"
-
-export ANDROID_HOME=/home/xxx/Android/cmdline-tools/latest
-export ANDROID_SDK_ROOT=/home/xxx/Android
+export ANDROID_HOME=/opt/android-sdk/cmdline-tools/latest
+export ANDROID_SDK_ROOT=/opt/android-sdk
 
 PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 PATH=$PATH:$ANDROID_HOME/bin
 
+export EDITOR="nvim"
+
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
+
+export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)
+export ADB_SERVER_SOCKET=tcp:$WSL_HOST:5037
