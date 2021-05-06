@@ -60,8 +60,11 @@ alias bashalias='vim ~/.bash_aliases'
 
 # Other aliases
 alias videospyder='python ~/bin/videospyder.py'
+alias youtube-dl='youtube-dl -f best'
+alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 alias conv-iso-uft='iconv -f iso-8859-15 -t utf-8'
 alias open-gz='tar xvzf'
 alias open-bz='tar xvjf'
 alias open-xz='tar xf'
 alias vim='nvim'
+alias openethereum='$HOME/git/openethereum/target/release/openethereum'

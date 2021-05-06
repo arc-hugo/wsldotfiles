@@ -62,18 +62,28 @@ function parse_git_dirty {
 	fi
 }
 
+# ssh-agent
+/usr/bin/keychain --nogui $HOME/.ssh/id_rsa
+source $HOME/.keychain/$HOSTNAME-sh
+
 export PS1="\[\033[38;5;24m\][\u@\h \[\033[38;5;33m\]\W \[\033[38;5;54m\]\`parse_git_branch\`\[\033[38;5;24m\]]\[\033[38;5;33m\]\$\[$(tput sgr0)\] "
 #export PS1="\[\033[38;5;202m\][\u@\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;237m\]\W\[$(tput sgr0)\]\[\033[38;5;202m\]]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 export ANDROID_HOME=/opt/android-sdk/cmdline-tools/latest
 export ANDROID_SDK_ROOT=/opt/android-sdk
 
+PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/go/bin
+PATH=$PATH:$HOME/.cargo/bin
 PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 PATH=$PATH:$ANDROID_HOME/bin
 
 export EDITOR="nvim"
 
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
+
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
 
 export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)
 export ADB_SERVER_SOCKET=tcp:$WSL_HOST:5037
