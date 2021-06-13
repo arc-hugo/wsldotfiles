@@ -59,6 +59,8 @@ Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 " JSX highlight
 Plug 'maxmellon/vim-jsx-pretty'
+" LaTeX
+Plug 'lervag/vimtex'
 " Rust highlight
 Plug 'rust-lang/rust.vim'
 " Ayu theme

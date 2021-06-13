@@ -45,7 +45,7 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias ada='f(){ gnatmake -q "$@"; gnatclean -q -c *;  unset -f f; }; f'
 
 # Packages maintaining aliases
-alias update='sudo pacman -Syu;yay -Syu --devel --timeupdate'
+alias update='yay -Syu --devel --timeupdate'
 alias autoclean='sudo pacman -Scc'
 alias autoremove='sudo pacman -R $(pacman -Qdtq)'
 alias search='sudo pkgfile'

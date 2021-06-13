@@ -80,7 +80,7 @@ PATH=$PATH:$ANDROID_HOME/bin
 
 export EDITOR="nvim"
 
-export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
+export JAVA_HOME=/usr/lib/jvm/default
 
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
